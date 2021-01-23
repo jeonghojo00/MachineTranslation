@@ -17,8 +17,9 @@ English Text = 'he saw a old yellow truck'
 French Text(Translated)        = 'il a vu un vieux camion jaune'
 French Text(Google Translator) = 'il a vu un vieux camion jaune'
 
-## Result
-Ran 25 epochs and achieved 98% accuracy at 11th epoch with 463us/step time consumed per epoch
+## Result with the Final Model
+Accuracy: 98%
+Training times: Ran 25 epochs and achieved 98% accuracy at 11th epoch with 463us/step time consumed per epoch
 
 ## Building the Pipeline
 Below is a summary of the various preprocessing and modeling steps. The high-level steps include:
@@ -83,4 +84,11 @@ Iteration: iterate on the model, experimenting with different architectures
     * Result
     ![](images/FinalRNNresult1.png)
     ![](images/FinalRNNresult2.png)    
-    
+  
+## Future Improvements
+Here are few improvements that I could try to improve
+
+1. Train with other languages
+2. Speed up time taken per step. ex) Decrease the time to 150us/step level with 98% accuracy.
+3. Decrease number of epoches to reach to 98% accuracy
+4. Compare GRU and LSTM: I tried the final model with  the GRU at first, but the accuracy was not high as the LSTM. Next time, I will experiment how they are different and what are advantages and disadvantages to use them. 
