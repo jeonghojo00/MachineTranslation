@@ -1,3 +1,7 @@
+### Udacity Machine Translation Nanodegree
+
+## Project 2: Machine Translation
+
 # Machine Translation with RNNs
 
 ## Objective
