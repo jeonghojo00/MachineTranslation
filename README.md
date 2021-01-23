@@ -1,25 +1,26 @@
-# NLP-MachineTranslation
-# Objective
+# Machine Translation with RNNs
+
+## Objective
 To build a deep neural network that functions as part of an end-to-end machine translation pipeline. The completed pipeline will accept English text as input and return the French translation.
 
-# Requirements
+## Requirements
 This project requires GPU acceleration to run efficiently. 
 
-# Install
+## Install
 - Python 3
 - NumPy
 - TensorFlow
 - Keras
 
-# Translation
+## Translation
 English Text = 'he saw a old yellow truck'
 French Text(Translated)        = 'il a vu un vieux camion jaune'
 French Text(Google Translator) = 'il a vu un vieux camion jaune'
 
-# Result
+## Result
 Ran 25 epochs and achieved 98% accuracy at 11th epoch with 463us/step time consumed per epoch
 
-# Building the Pipeline
+## Building the Pipeline
 Below is a summary of the various preprocessing and modeling steps. The high-level steps include:
 
 Preprocessing: Load sentences, cleaning, tokenization, padding.
@@ -27,21 +28,59 @@ Modeling: Build the RNN model, train, and testing.
 Prediction: Translate English to French, and compare the output translations to what it is supposed to be.
 Iteration: iterate on the model, experimenting with different architectures
 
-# Preprocessing
-Cleaning - 
-Tokenization - 
-Padding - 
+## Preprocessing
+1. Cleaning
+* Description: Uppercase letters -> Lowercase letters, Punctuations -> spaces 
+               % Current dataset does not require Cleaning because it has been preprocessed already in the ways mentioned above.
+  ![Alt](images/PreprocessClean.png)
+        
+2. Tokenization
+* Description: Turn each sentence into a sequence of words ids using Keras's Tokenizer function. Use this function to tokenize english_sentences and french_sentences in the cell below.
+* tokenize(x)
+    Input(x): List of sentences/strings to be tokenized
+    Output  : Tuple of (tokenized x data, tokenizer used to tokenize x)
+  ![Alt](images/PreprocessToken.png)
+  
+3. Padding
+* Description: Since all the sequences need to be the same length, we add padding to the end of the sequences(padding='post') to make them the same length.
+* pad(x, length=None)
+    Input(x)     : List of sequences
+    Input(length): Length to pad the sequence to.  If None, use length of longest sequence in x.
+    Output       : Padded numpy array of sequences
+  ![](images/PreprocessPad.png)
 
-# Modeling
+## Modeling
 4 RNN Models
-  - Simple RNN
-  ![](images/SimpleRNN.png)
+* 4 RNN models have been developed and compared to use them as reference for the final model: Simple RNN, RNN with Embedding, Bidirectional RNN, and Encoder-Decoder RNN. 
+  1. Simple RNN
+    * Description: Simple RNN with a GRU layer
+    ![](images/SimpleRNN.png)
   
-  - Embedding layers implemented
-  ![](images/EmbedRNN.png)
+    * Result
+    ![](images/SimpleRNNresult.png)
+      
+  2. Embedding layers implemented
+    * Description: Embedding Layer and GRU Layer
+    ![](images/EmbedRNN.png)
+    
+    * Result
+    ![](images/SimpleRNNresult.png)
   
-  - Bidirectional layers implemented
-  ![](images/BidirecRNN.png)
-  
-  - Encoder-Decoder model
-  - (Final model) Combination of layers for higher accuracy
+  3. Bidirectional layers implemented
+    * Description: Bidirectional Layer with GRU model
+    ![](images/BidirecRNN.png)
+
+    * Result
+    ![](images/BidRNNresult.png)
+    
+  4. Encoder-Decoder model
+    * Description: Encoder Layer with GRU and Decoder Layer with GRU
+    * Result
+    ![](images/EncdecRNNresult.png)
+     
+  5. (Final model) Combination of layers for higher accuracy
+    * Description: Embed Layer, Bidirectional with LSTM, Dropout 20%, 
+    * Result
+    ![](images/FinalRNNresult1.png)
+    ![](images/FinalRNNresult2.png)    
+    
