@@ -35,7 +35,10 @@ Padding -
 # Modeling
 4 RNN Models
   - Simple RNN
+  ![](images/SimpleRNN.png)
   - Embedding layers implemented
+  ![](images/EmbedRNN.png)
   - Bidirectional layers implemented
+  ![](images/BidirecRNN.png)
   - Encoder-Decoder model
   - (Final model) Combination of layers for higher accuracy
